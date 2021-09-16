@@ -22,25 +22,6 @@ export const fetchData = async (country) => {
   }
 };
 
-export const fetchDailyData = async () => {
-  try {
-    const { data } = await axios.get(`${url}/daily`);
-    // console.log(data);
-    const result = data.map(
-      ({ confirmed, recovered, deaths, reportDate: date }) => ({
-        confirmed: confirmed.total,
-        recovered: recovered.total,
-        deaths: deaths.total,
-        date,
-      })
-    );
-    // console.log(result);
-    return result;
-  } catch (error) {
-    return error;
-  }
-};
-
 export const fetchDailyUsData = async () => {
   try {
     let cors = 'https://cors-anywhere.herokuapp.com/';
