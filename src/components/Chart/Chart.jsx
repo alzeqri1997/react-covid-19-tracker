@@ -13,12 +13,7 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
             const initialDailyData = await fetchDailyUsData();
 
             setDailyData(initialDailyData);
-
-            
-
         };
-
-        console.log(dailyData);
 
         fetchMyAPI();
     },[]);
@@ -30,7 +25,7 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
                     labels: ['Infected', 'Recovered', 'Deaths'],
                     datasets: [{
                         label: 'People',
-                        backgroundColor: ['rgba(0, 0, 255, 0.5)', 'rgba(0, 255, 0, 0.5)', 'rgba(0, 255, 0, 0.5)'],
+                        backgroundColor: ['rgba(0, 0, 255, 0.5)', 'green)', 'red'],
                         data:[confirmed.value, recovered.value, deaths.value]
                     },]
                     
@@ -42,6 +37,7 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country }) => {
             />
         ): null
     );
+
 
     const lineChart = (
         dailyData[0] ? (
