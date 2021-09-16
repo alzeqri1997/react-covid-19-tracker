@@ -43,8 +43,9 @@ export const fetchDailyData = async () => {
 
 export const fetchDailyUsData = async () => {
   try {
+    let cors = 'https://cors-anywhere.herokuapp.com/';
     const { data } = await axios.get(
-      'https://api.covidtracking.com/v1/us/daily.json'
+      `${cors}https://api.covidtracking.com/v1/us/daily.json`
     );
     const result = data.map(
       ({ positive, recovered, death, dateChecked: date }) => ({
